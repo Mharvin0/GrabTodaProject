@@ -16,4 +16,5 @@
     </style>
 
     <style name="Theme.TodaProj" parent="Base.Theme.TodaProj" />
+
 </resources>
