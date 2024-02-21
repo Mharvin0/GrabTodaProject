@@ -13,7 +13,10 @@
         android:theme="@style/Theme.TodaProj"
         tools:targetApi="31">
         <activity
-            android:name=".Farecalc"
+            android:name=".Calculator"
+            android:exported="false" />
+        <activity
+            android:name=".Booking"
             android:exported="false" />
         <activity
             android:name=".Register"
