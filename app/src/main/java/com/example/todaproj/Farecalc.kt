@@ -6,7 +6,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-class FarecalcActivity : AppCompatActivity() {
+class Farecalc : AppCompatActivity() {
 
     private lateinit var editTextDistance: EditText
     private lateinit var editTextFareRate: EditText
