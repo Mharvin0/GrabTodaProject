@@ -1,151 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_register.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:padding="16dp"
     tools:context=".Register">
 
-    <androidx.cardview.widget.CardView
+    <EditText
+        android:id="@+id/editTextUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:cardCornerRadius="28dp"
-        android:layout_marginBottom="60dp">
+        android:hint="Username"
+        android:inputType="text" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="28dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Register to continue"
-                android:textColor="@color/primary"
-                android:textSize="32sp"
-                android:textStyle="bold"/>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"/>
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextUsername"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Full Name"
-                android:alpha="0.9"
-                android:textStyle="bold"/>
-            <EditText
-                android:id="@+id/full_name_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"/>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"/>
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEmail"
+        android:hint="Password"
+        android:inputType="textPassword" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email"
-                android:alpha="0.9"
-                android:textStyle="bold"/>
-            <EditText
-                android:id="@+id/email_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"/>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Password"
-                android:alpha="0.9"
-                android:textStyle="bold"/>
-            <EditText
-                android:id="@+id/password_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"/>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Confirm Password"
-                android:alpha="0.9"
-                android:textStyle="bold"/>
-            <EditText
-                android:id="@+id/confirm_password_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"/>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"/>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/passenger_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Passenger"
-                    android:textStyle="bold"
-                    android:layout_centerVertical="true"
-                    android:alpha="0.9"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="or"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"/>
-
-                <CheckBox
-                    android:id="@+id/driver_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Driver"
-                    android:textStyle="bold"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:alpha="0.9"/>
-
-
-            </RelativeLayout>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/continue_btn"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="Continue"
-                app:cornerRadius="32dp"/>
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"/>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:alpha="0.7"
-                android:background="@color/primary" />
-
-        </LinearLayout>
-
-
-    </androidx.cardview.widget.CardView>
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPassword"
+        android:layout_marginTop="16dp"
+        android:text="Register" />
 
 </RelativeLayout>

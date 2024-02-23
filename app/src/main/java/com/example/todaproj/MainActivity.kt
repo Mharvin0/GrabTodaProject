@@ -1,5 +1,6 @@
 package com.example.todaproj
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -36,8 +37,9 @@ class MainActivity : AppCompatActivity() {
 
         // Set click listener for register button
         registerButton.setOnClickListener {
-            // Navigate to the registration activity or perform registration logic
-            showToast("Navigate to Register Activity")
+            // Navigate to the registration activity
+            val intent = Intent(this, Register::class.java)
+            startActivity(intent)
         }
     }
 
