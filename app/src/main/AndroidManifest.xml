@@ -13,10 +13,13 @@
         android:theme="@style/Theme.TodaProj"
         tools:targetApi="31">
         <activity
-            android:name=".Dashboard"
+            android:name=".Profs"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Dashboard"
             android:exported="false" />
         <activity
             android:name=".Booking"
