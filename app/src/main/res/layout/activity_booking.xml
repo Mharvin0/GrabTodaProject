@@ -11,122 +11,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="150dp"
         app:cardCornerRadius="28dp">
 
-        <LinearLayout
+        <!-- activity_booking.xml -->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="28dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BOOKING"
-                android:textColor="@color/primary"
-                android:textSize="32sp"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="30dp" />
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:alpha="0.9"
-                android:text="Location From:"
-                android:textStyle="bold" />
+            android:layout_height="353dp">
 
             <EditText
+                android:id="@+id/editTextPickup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords" />
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:alpha="0.9"
-                android:text="Location To:"
-                android:textStyle="bold" />
+                android:layout_margin="16dp"
+                android:hint="Enter pickup location" />
 
             <EditText
+                android:id="@+id/editTextDropoff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords" />
+                android:layout_below="@id/editTextPickup"
+                android:layout_margin="16dp"
+                android:hint="Enter drop-off location" />
 
-            <View
+            <Button
+                android:id="@+id/buttonCalculateFare"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextDropoff"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="Calculate Fare" />
 
-            <View
+            <TextView
+                android:id="@+id/textViewFare"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/buttonCalculateFare"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="Fare: "
+                android:textSize="20sp" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:alpha="0.9"
-                    android:text="Private"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:text="or" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-
-                    android:alpha="0.9"
-                    android:text="Public"
-                    android:textStyle="bold" />
-
-
-            </RelativeLayout>
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="20dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/continue_btn"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="Continue"
-                app:cornerRadius="32dp" />
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="20dp" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:alpha="0.7"
-                android:background="@color/primary" />
-
-        </LinearLayout>
-
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
