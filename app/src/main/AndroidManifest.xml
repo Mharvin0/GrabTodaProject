@@ -16,9 +16,6 @@
             android:name=".Booking"
             android:exported="false" />
         <activity
-            android:name=".Profs"
-            android:exported="false" />
-        <activity
             android:name=".Profile"
             android:exported="false" />
         <activity
