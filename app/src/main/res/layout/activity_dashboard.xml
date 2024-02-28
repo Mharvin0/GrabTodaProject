@@ -49,49 +49,50 @@
             app:layout_constraintStart_toEndOf="@+id/grantodaName"/>
 
         <LinearLayout
+            android:id="@+id/row1"
             android:layout_width="0dp"
             android:layout_height="175dp"
-            android:id="@+id/row1"
+            android:layout_marginTop="12dp"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
             android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/grabtodaImage">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/BookingCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:id="@+id/BookingCard"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/BookingName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/BookingName"
-                        android:text="Booking"
-                        android:textSize="20sp"
-                        android:textColor="@color/primary"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/bookingImage"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/grabtodaImage"/>
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Booking"
+                        android:textColor="@color/primary"
+                        android:textSize="20sp" />
 
                     <ImageView
+                        android:id="@+id/bookingImage"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:id="@+id/grabtodaImage"
-                        android:src="@drawable/booking_icon"
+                        android:layout_below="@+id/bookingName"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/booking_icon" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -101,122 +102,123 @@
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/CalculatorName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/CalculatorName"
-                        android:text="Calculator"
-                        android:textSize="20sp"
-                        android:textColor="@color/primary"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/calculatorImage"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/calculatorImage"/>
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Calculator"
+                        android:textColor="@color/primary"
+                        android:textSize="20sp" />
 
                     <ImageView
+                        android:id="@+id/calculatorImage"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:id="@+id/calculatorImage"
-                        android:src="@drawable/calculator_icon"
-                        android:layout_marginTop="15dp"
+                        android:layout_below="@+id/calculatorName"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/calculatorName"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/calculator_icon" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="175dp"
             android:id="@+id/row2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
             android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/row1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/highlightCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:id="@+id/BookingCard"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/HighlighName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/HighlighName"
-                        android:text="Highlight"
-                        android:textSize="20sp"
-                        android:textColor="@color/primary"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/HighlightImage"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/HighlightImage"/>
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Highlight"
+                        android:textColor="@color/primary"
+                        android:textSize="20sp" />
 
                     <ImageView
+                        android:id="@+id/HighlightImage"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:id="@+id/HighlightImage"
-                        android:src="@drawable/highlight_icon"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/highlight_icon" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/ProfilrCard"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:id="@+id/BookingCard"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="20dp">
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/HistoryName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/HistoryName"
-                        android:text="History"
-                        android:textSize="20sp"
-                        android:textColor="@color/primary"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/HistoryImage"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/HistoryImage"/>
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="History"
+                        android:textColor="@color/primary"
+                        android:textSize="20sp" />
 
                     <ImageView
+                        android:id="@+id/HistoryImage"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:id="@+id/HistoryImage"
-                        android:src="@drawable/history_icon"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/history_icon" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="0dp"

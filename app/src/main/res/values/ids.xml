@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="confirm_button" type="id" />
+    <item name="highlightName" type="id" />
+    <item name="profileName" type="id" />
+    <item name="historyName" type="id" />
+    <item name="logoutName" type="id" />
 </resources>
