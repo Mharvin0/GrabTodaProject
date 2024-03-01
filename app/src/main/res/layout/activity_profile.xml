@@ -16,16 +16,12 @@
         android:layout_above="@+id/card_view"
         android:padding="10dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/person_icon" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
-            android:text="My Profile"
+            android:text="Edit Profile"
             android:textColor="@color/primary"
             android:textSize="32sp"
             android:textStyle="bold" />
@@ -46,21 +42,6 @@
             android:orientation="vertical"
             android:padding="15dp">
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Welcome To GrabToda"
-                android:textColor="@color/primary"
-                android:textSize="32sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:alpha="0.7"
-                android:text="Grab Toda" />
-
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="20dp" />
@@ -69,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.7"
-                android:text="Change Username:"
+                android:text="Change Full Name:"
                 android:textStyle="bold" />
 
             <EditText
@@ -77,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/done_icon"
-                android:hint="Enter New Username" />
+                android:hint="Enter Full Name" />
 
             <View
                 android:layout_width="wrap_content"
@@ -116,6 +97,25 @@
                 android:hint="Enter New Password"
                 android:inputType="textPassword" />
 
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:text="Confirm Change Password"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/confirm_password_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/password_icon"
+                android:hint="Enter New Password"
+                android:inputType="textPassword" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -144,6 +144,7 @@
                 android:layout_height="50dp"
                 android:gravity="center"
                 android:orientation="horizontal">
+
 
                 <ImageView
                     android:layout_width="40dp"
