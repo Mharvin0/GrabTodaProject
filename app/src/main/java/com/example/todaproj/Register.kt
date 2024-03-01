@@ -6,6 +6,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.todaproj.client.ApiClient
+import com.example.todaproj.model.reponse.RegisterResponse
+import com.example.todaproj.model.request.RegisterRequest
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class Register : AppCompatActivity() {
 
@@ -13,28 +19,57 @@ class Register : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        val editTextUsername = findViewById<EditText>(R.id.editTextUsername)
+        val buttonRegister = findViewById<Button>(R.id.buttonRegister)
+        buttonRegister.setOnClickListener {
+            getInputs()
+        }
+    }
+    private fun getInputs(){
+        val editName = findViewById<EditText>(R.id.editTextName)
         val editTextEmail = findViewById<EditText>(R.id.editTextEmail)
         val editTextPassword = findViewById<EditText>(R.id.editTextPassword)
-        val buttonRegister = findViewById<Button>(R.id.buttonRegister)
+        val editTextCPassword = findViewById<EditText>(R.id.editTextCPassword)
+        val name = editName.text.toString()
+        val email = editTextEmail.text.toString()
+        val password = editTextPassword.text.toString()
+        val cpassword = editTextCPassword.text.toString()
+        if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
 
-        buttonRegister.setOnClickListener {
-            val username = editTextUsername.text.toString()
-            val email = editTextEmail.text.toString()
-            val password = editTextPassword.text.toString()
-
-            if (username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-                // Perform registration logic here, e.g., send data to server or save locally
-                // For simplicity, display a toast indicating successful registration
+            if (password == cpassword) {
+                registerUser(name, email, password)
                 Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
-
-                // Navigate to MainActivity upon successful registration
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-                finish() // Optional: finish RegisterActivity to prevent going back
-            } else {
-                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                finish()
+            }else {
+                Toast.makeText(this, "Incorrect password", Toast.LENGTH_SHORT).show()}
+        }else {
+            Toast.makeText(this, "Please fill in the required credentials!", Toast.LENGTH_SHORT).show()}
+    }
+
+
+    private fun registerUser(name: String, email: String, password: String){
+        val registerRequest = RegisterRequest(name, email, password);
+
+        val apiCall = ApiClient.getApiService().registerUser(registerRequest)
+        apiCall.enqueue(object : Callback<RegisterResponse>{
+            override fun onResponse(
+                call: Call<RegisterResponse>,
+                response: Response<RegisterResponse>
+            ) {
+
+                if (response.isSuccessful){
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intent)
+                }else{
+
+                }
             }
-        }
+
+            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+
+            }
+
+        })
     }
 }
