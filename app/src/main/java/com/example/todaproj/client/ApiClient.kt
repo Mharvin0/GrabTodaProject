@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 
 object ApiClient {
 
-    private const val BASE_URL = "https://grabtoda.online/api/users/"
+    private const val BASE_URL = "https://grabtoda.online/"
 
     fun getRetrofit(): Retrofit{
 

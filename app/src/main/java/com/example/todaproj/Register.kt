@@ -2,6 +2,8 @@ package com.example.todaproj
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -24,6 +26,11 @@ class Register : AppCompatActivity() {
             getInputs()
         }
     }
+
+    fun goBack(view: View) {
+        onBackPressed()
+    }
+
     private fun getInputs(){
         val editName = findViewById<EditText>(R.id.editTextName)
         val editTextEmail = findViewById<EditText>(R.id.editTextEmail)

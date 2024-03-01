@@ -7,6 +7,16 @@
     android:background="@drawable/bg"
     tools:context=".Register">
 
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/backarrow"
+        android:layout_margin="8dp"
+        android:onClick="goBack"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,6 +37,8 @@
         android:src="@drawable/baseline_app_registration_24" />
 
     </LinearLayout>
+
+
 
 
     <androidx.cardview.widget.CardView
