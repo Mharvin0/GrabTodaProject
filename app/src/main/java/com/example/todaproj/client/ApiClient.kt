@@ -7,9 +7,9 @@ import retrofit2.Retrofit
 
 object ApiClient {
 
-    private const val BASE_URL = "https://grabtoda.online/"
+    val BASE_URL = "https://grabtoda.online/"
 
-    fun getRetrofit(): Retrofit{
+    fun getInstance(): Retrofit{
 
         val logger = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
@@ -28,6 +28,6 @@ object ApiClient {
     }
 
     fun getApiService():ApiService{
-        return getRetrofit().create(ApiService::class.java)
+        return getInstance().create(ApiService::class.java)
     }
 }
