@@ -6,6 +6,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.todaproj.client.ApiClient
+import com.example.todaproj.service.ApiService
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +17,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val ApiService = ApiClient.getInstance().create(ApiService::class.java)
+
+        GlobalScope.launch {
+            val response = ApiService.getPost()
+            if (response != null){
+                //code
+                val body = response.body().toString()
+            }
+        }
 
         val emailEditText = findViewById<EditText>(R.id.email_edit_text)
         val passwordEditText = findViewById<EditText>(R.id.password_edit_text)
