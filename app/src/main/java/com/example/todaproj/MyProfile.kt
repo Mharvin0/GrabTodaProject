@@ -146,7 +146,7 @@ class MyProfile : AppCompatActivity() {
                 gravity = android.view.Gravity.CENTER_HORIZONTAL
                 topMargin = 15.dpToPx()
             }
-            text = "Follow me"
+            text = "Booked Rides"
             textSize = 18f
             // Add onClickListener if needed
         }
