@@ -2,18 +2,20 @@ package com.example.todaproj
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
+import android.util.JsonReader
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.todaproj.client.ApiClient
+import com.example.todaproj.api.ApiClient
 import com.example.todaproj.model.reponse.RegisterResponse
 import com.example.todaproj.model.request.RegisterRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.StringReader
 
 class Register : AppCompatActivity() {
 
@@ -21,62 +23,80 @@ class Register : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        val editName = findViewById<EditText>(R.id.editTextName)
+        val editTextEmail = findViewById<EditText>(R.id.editTextEmail)
+        val editTextPassword = findViewById<EditText>(R.id.editTextPassword)
+        val editTextCPassword = findViewById<EditText>(R.id.editTextCPassword)
+
+
+
         val buttonRegister = findViewById<Button>(R.id.buttonRegister)
+
         buttonRegister.setOnClickListener {
-            getInputs()
+            val name = editName.text.toString().trim()
+            val email = editTextEmail.text.toString().trim()
+            val password = editTextPassword.text.toString().trim()
+            val cpassword = editTextCPassword.text.toString().trim()
+
+            val signupDataJson = "{\"name\":\"$name\", \"email\":\"$email\",\"password\":\"$password\" }"
+
+            if (email.isEmpty()){
+                editTextEmail.error = "Please enter your Email"
+                editTextEmail.requestFocus()
+                return@setOnClickListener
+            }
+            if (name.isEmpty()){
+                editName.error = "Please enter your Name"
+                editName.requestFocus()
+                return@setOnClickListener
+            }
+            if (password.isEmpty()){
+                editTextPassword.error = "Please enter your password"
+                editTextPassword.requestFocus()
+                return@setOnClickListener
+            }
+            if (cpassword.isEmpty()){
+                editTextCPassword.error = "Please confirm your password"
+                editTextCPassword.requestFocus()
+                return@setOnClickListener
+            }
+            if (cpassword != password){
+                editTextCPassword.error = "Password does not match"
+                editTextCPassword.requestFocus()
+                return@setOnClickListener
+            }
+
+            try {
+                val reader = JsonReader(StringReader (signupDataJson))
+                reader.isLenient = true
+                reader.beginObject()
+                reader.close()
+                ApiClient.instance.createUser(name, email, password).enqueue( object : Callback<RegisterResponse> {
+                    override fun onResponse(
+                        call: Call<RegisterResponse>,
+                        response: Response<RegisterResponse>
+                    ) {
+                        if (response.isSuccessful && response.body() != null) {
+                            Toast.makeText(applicationContext, "Registration successful", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this@Register, MainActivity::class.java))
+                            finish()
+                        } else {
+                            Toast.makeText(applicationContext, "Registration failed", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                        Toast.makeText(applicationContext, "Failed: ${t.message}", Toast.LENGTH_SHORT).show()
+                    }
+                })
+        }catch (e: Exception){
+                Toast.makeText(applicationContext, "Error occurred: ${e.message}", Toast.LENGTH_SHORT).show()
+                e.printStackTrace()
+            }
         }
     }
 
     fun goBack(view: View) {
         onBackPressed()
-    }
-
-    private fun getInputs(){
-        val editName = findViewById<EditText>(R.id.editTextName)
-        val editTextEmail = findViewById<EditText>(R.id.editTextEmail)
-        val editTextPassword = findViewById<EditText>(R.id.editTextPassword)
-        val editTextCPassword = findViewById<EditText>(R.id.editTextCPassword)
-        val name = editName.text.toString()
-        val email = editTextEmail.text.toString()
-        val password = editTextPassword.text.toString()
-        val cpassword = editTextCPassword.text.toString()
-        if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-
-            if (password == cpassword) {
-                registerUser(name, email, password)
-                Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
-            }else {
-                Toast.makeText(this, "Incorrect password", Toast.LENGTH_SHORT).show()}
-        }else {
-            Toast.makeText(this, "Please fill in the required credentials!", Toast.LENGTH_SHORT).show()}
-    }
-
-
-    private fun registerUser(name: String, email: String, password: String){
-        val registerRequest = RegisterRequest(name, email, password);
-
-        val apiCall = ApiClient.getApiService().registerUser(registerRequest)
-        apiCall.enqueue(object : Callback<RegisterResponse>{
-            override fun onResponse(
-                call: Call<RegisterResponse>,
-                response: Response<RegisterResponse>
-            ) {
-
-                if (response.isSuccessful){
-                    val intent = Intent(applicationContext, MainActivity::class.java)
-                    startActivity(intent)
-                }else{
-
-                }
-            }
-
-            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
-
-            }
-
-        })
     }
 }
