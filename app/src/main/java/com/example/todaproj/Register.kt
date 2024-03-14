@@ -28,8 +28,6 @@ class Register : AppCompatActivity() {
         val editTextPassword = findViewById<EditText>(R.id.editTextPassword)
         val editTextCPassword = findViewById<EditText>(R.id.editTextCPassword)
 
-
-
         val buttonRegister = findViewById<Button>(R.id.buttonRegister)
 
         buttonRegister.setOnClickListener {
@@ -71,7 +69,7 @@ class Register : AppCompatActivity() {
                 reader.isLenient = true
                 reader.beginObject()
                 reader.close()
-                ApiClient.instance.createUser(name, email, password).enqueue( object : Callback<RegisterResponse> {
+                ApiClient.getInstance(applicationContext).createApiService().createUser(name, email, password).enqueue( object : Callback<RegisterResponse> {
                     override fun onResponse(
                         call: Call<RegisterResponse>,
                         response: Response<RegisterResponse>

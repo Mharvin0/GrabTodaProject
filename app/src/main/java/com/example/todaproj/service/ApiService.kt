@@ -15,7 +15,7 @@ import retrofit2.http.POST
 interface ApiService {
 
     @FormUrlEncoded
-    @POST("store")
+    @POST("users")
     fun createUser(
         @Field("name") name:String,
         @Field("email") email:String,
