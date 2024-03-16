@@ -13,12 +13,10 @@ class Booking : AppCompatActivity() {
     private lateinit var buttonCalculateFare: Button
     private lateinit var textViewFare: TextView
 
-    // Define a map to store fare rates for specific locations
     private val fareRates = mapOf(
         "Location A" to 10.0,  // Fare for Location A is $10
         "Location B" to 15.0,  // Fare for Location B is $15
         "Location C" to 20.0   // Fare for Location C is $20
-        // Add more locations and fares as needed
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +37,6 @@ class Booking : AppCompatActivity() {
         val pickupLocation = editTextPickup.text.toString()
         val dropoffLocation = editTextDropoff.text.toString()
 
-        // Check if both pickup and drop-off locations exist in the fare rates map
         if (fareRates.containsKey(pickupLocation) && fareRates.containsKey(dropoffLocation)) {
             val fare = calculateFareFromLocations(pickupLocation, dropoffLocation)
             textViewFare.text = "Fare: $$fare"
@@ -49,7 +46,6 @@ class Booking : AppCompatActivity() {
     }
 
     private fun calculateFareFromLocations(pickupLocation: String, dropoffLocation: String): Double {
-        // Get fare rates for pickup and drop-off locations and calculate total fare
         val pickupFare = fareRates[pickupLocation] ?: 0.0
         val dropoffFare = fareRates[dropoffLocation] ?: 0.0
         return pickupFare + dropoffFare

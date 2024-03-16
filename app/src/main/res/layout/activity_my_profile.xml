@@ -96,8 +96,8 @@
                 android:id="@+id/nameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GrabToda@gmail.com"
                 android:textColor="@color/primary"
+                android:text="Full Name"
                 android:textSize="18dp"
                 android:padding="15dp"
                 android:layout_gravity="center_vertical"/>
@@ -124,23 +124,20 @@
                     android:id="@+id/emailTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="GrabToda@gmail.com"
                     android:textColor="@color/primary"
+                    android:text="Email"
                     android:textSize="18dp"
                     android:padding="15dp"
                     android:layout_gravity="center_vertical"/>
             </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        </LinearLayout>
+
+    </LinearLayout>
 
         <Button
             android:id="@+id/editProfileButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Edit Profile"
             android:textSize="18dp"
@@ -148,21 +145,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            />
-
-        <Button
-            android:id="@+id/bookedRidesButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Booked Rides"
-            android:textSize="18dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_toRightOf="@id/editProfileButton"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             />
 
-    </RelativeLayout>
 </LinearLayout>

@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                         if (response.isSuccessful && response.body() != null){
-                            val intent = Intent(applicationContext, Dashboard::class.java)
+                            val intent = Intent(applicationContext, MyProfile::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
 
