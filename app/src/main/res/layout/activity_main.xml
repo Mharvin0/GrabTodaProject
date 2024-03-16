@@ -16,23 +16,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
-        android:padding="28dp">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/location_icon"/>
+            android:src="@drawable/location_icon" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GrabToda"
-            android:textStyle="bold"
             android:fontFamily="serif-monospace"
+            android:text="GrabToda"
+            android:textColor="@android:color/white"
             android:textSize="35sp"
-            android:textColor="@android:color/white"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -41,11 +41,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:cardCornerRadius="28dp"
-        android:layout_marginBottom="-28dp">
+        android:layout_marginBottom="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="500dp"
             android:orientation="vertical"
             android:padding="28dp">
 
@@ -55,50 +55,50 @@
                 android:text="Welcome!"
                 android:textColor="@color/primary"
                 android:textSize="38sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Please login to continue..."
-                android:alpha="0.7"/>
+                android:alpha="0.7"
+                android:text="Please login to continue..." />
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"/>
+                android:layout_height="30dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email Address"
                 android:alpha="0.7"
-                android:textStyle="bold"/>
+                android:text="Email Address"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/email_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
+                android:drawableEnd="@drawable/done_icon"
                 android:inputType="textEmailAddress"
-                android:drawableEnd="@drawable/done_icon"/>
+                android:textColor="@android:color/black" />
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Password"
                 android:alpha="0.7"
-                android:textStyle="bold"/>
+                android:text="Password"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/password_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:drawableEnd="@drawable/password_icon"/>
+                android:drawableEnd="@drawable/password_icon"
+                android:inputType="textPassword" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -107,30 +107,30 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Remember me"
-                    android:textColor="@android:color/black"
                     android:layout_centerVertical="true"
-                    android:alpha="0.7"/>
+                    android:alpha="0.7"
+                    android:text="Remember me"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Forgot password?"
                     android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true"
+                    android:text="Forgot password?" />
 
             </RelativeLayout>
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="10dp"/>
+                android:layout_height="10dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/login_btn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="Login"
-                app:cornerRadius="32dp"/>
+                app:cornerRadius="32dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -139,8 +139,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="or"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true"
+                    android:text="or" />
 
             </RelativeLayout>
 
@@ -149,14 +149,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="Register"
-                app:cornerRadius="32dp"/>
+                app:cornerRadius="32dp" />
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
         </LinearLayout>
 
+
     </androidx.cardview.widget.CardView>
+
 
 </RelativeLayout>

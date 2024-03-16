@@ -16,11 +16,11 @@
     <LinearLayout
         android:id="@+id/profile_section"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
         android:layout_above="@+id/card_view"
-        android:padding="10dp">
+        android:padding="2dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:cardCornerRadius="28dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="60dp"
         android:id="@+id/card_view">
 
         <LinearLayout
@@ -142,13 +142,13 @@
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="10dp" />
+                android:layout_height="5dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:text="Comfirm"
-                app:cornerRadius="32dp" />
+                app:cornerRadius="30dp" />
 
 
         </LinearLayout>
@@ -158,5 +158,13 @@
             android:layout_height="10dp"/>
 
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation_menu"
+        android:background="@color/secondary" />
 
 </RelativeLayout>
