@@ -11,10 +11,9 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 
-//Define your activity class
 class Dashboard : AppCompatActivity() {
 
-    // Lifecycle method called when the activity is created
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)

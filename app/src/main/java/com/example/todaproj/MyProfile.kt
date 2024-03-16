@@ -1,5 +1,6 @@
 package com.example.todaproj
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.view.marginTop
 import androidx.core.view.setPadding
+import com.example.todaproj.storages.SharedPrefManager
 import org.w3c.dom.Text
 
 
@@ -19,6 +21,15 @@ class MyProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(createProfileLayout())
+    }
+    override fun onStart() {
+        super.onStart()
+
+        if (!SharedPrefManager.getInstance(this).isLoggedIn){
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
     }
 
     private fun createProfileLayout(): LinearLayout {
