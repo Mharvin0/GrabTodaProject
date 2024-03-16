@@ -93,8 +93,4 @@ class Register : AppCompatActivity() {
             }
         }
     }
-
-    fun goBack(view: View) {
-        onBackPressed()
-    }
 }

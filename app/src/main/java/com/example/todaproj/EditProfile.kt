@@ -6,7 +6,7 @@ import android.widget.Toast
 import android.os.Bundle
 import android.widget.Button
 
-class Profile : AppCompatActivity() {
+class EditProfile : AppCompatActivity() {
 
     private lateinit var newUsernameEditText: EditText
     private lateinit var newEmailEditText: EditText
@@ -15,7 +15,7 @@ class Profile : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+        setContentView(R.layout.fragment_edit_profile)
 
         newUsernameEditText = findViewById(R.id.new_username_edit)
         newEmailEditText = findViewById(R.id.new_email_edit)

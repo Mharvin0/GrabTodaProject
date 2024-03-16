@@ -4,8 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
-    tools:context=".Profile">
+    android:background="@drawable/bg3"
+    tools:context=".EditProfile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primary"
+        android:alpha="0.7"/>
 
     <LinearLayout
         android:id="@+id/profile_section"
@@ -22,7 +28,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
             android:text="Edit Profile"
-            android:textColor="@color/primary"
+            android:textColor="@color/white"
             android:textSize="32sp"
             android:textStyle="bold" />
 
@@ -139,32 +145,6 @@
                 android:text="Comfirm"
                 app:cornerRadius="32dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="12dp"
-                    android:background="@drawable/facebook" />
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="12dp"
-                    android:background="@drawable/github" />
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="12dp"
-                    android:background="@drawable/instagram" />
-
-            </LinearLayout>
 
         </LinearLayout>
 

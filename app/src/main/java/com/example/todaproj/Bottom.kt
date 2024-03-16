@@ -1,6 +1,5 @@
 package com.example.todaproj
 
-import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -19,29 +18,29 @@ class Bottom : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when(menuItem.itemId) {
                 R.id.dashboard -> {
-                    replaceFragment(HomeFragment())
+                    replaceFragment(Dashboard())
                     true
                 }
                 R.id.Profile -> {
-                    replaceFragment(ProfileFragment())
+                    replaceFragment(EditProfile())
                     true
                 }
                 R.id.Booking -> {
-                    replaceFragment(BookingFragment())
+                    replaceFragment(Booking())
                     true
                 }
                 R.id.History -> {
-                    replaceFragment(HistoryFragment())
+                    replaceFragment(History())
                     true
                 }
                 R.id.EditProfile -> {
-                    replaceFragment(EditProfileFragment())
+                    replaceFragment(EditProfile())
                     true
                 }
                 else -> false
             }
         }
-        replaceFragment(HomeFragment())
+        replaceFragment(Dashboard())
 
     }
     private fun replaceFragment(fragment: Fragment){
