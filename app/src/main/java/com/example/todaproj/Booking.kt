@@ -5,6 +5,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Booking : AppCompatActivity() {
 
@@ -14,9 +15,9 @@ class Booking : AppCompatActivity() {
     private lateinit var textViewFare: TextView
 
     private val fareRates = mapOf(
-        "Location A" to 10.0,  // Fare for Location A is $10
-        "Location B" to 15.0,  // Fare for Location B is $15
-        "Location C" to 20.0   // Fare for Location C is $20
+        "Location A" to 10.0,
+        "Location B" to 15.0,
+        "Location C" to 20.0
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +28,7 @@ class Booking : AppCompatActivity() {
         editTextDropoff = findViewById(R.id.editTextDropoff)
         buttonCalculateFare = findViewById(R.id.buttonCalculateFare)
         textViewFare = findViewById(R.id.textViewFare)
+
 
         buttonCalculateFare.setOnClickListener {
             calculateFare()
