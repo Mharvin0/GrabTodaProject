@@ -22,7 +22,7 @@
             android:name=".MyProfile"
             android:exported="false" />
         <activity
-            android:name=".EditProfile"
+            android:name=".Profile"
             android:exported="false" />
         <activity
             android:name=".Dashboard"

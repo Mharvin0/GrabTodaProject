@@ -11,26 +11,33 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:background="@color/primary"
-        android:alpha="0.7">
+        android:background="@color/primary">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.7"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="@drawable/bg2"
+            android:background="@drawable/bg5"
             android:padding="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/profileicon" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="My Profile"
+                android:layout_marginBottom="100dp"
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
+
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -59,15 +66,14 @@
                         android:layout_height="wrap_content"
                         android:text="Total Bookings"
                         android:textSize="17dp"
-                        android:textColor="@color/primary"/>
+                        android:textColor="@color/black"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="100k"
                         android:textSize="27dp"
-                        android:textColor="@color/primary"
+                        android:textColor="@color/black"
                         android:textStyle="bold"/>
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -96,7 +102,7 @@
                 android:id="@+id/nameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/primary"
+                android:textColor="@color/black"
                 android:text="Full Name"
                 android:textSize="18dp"
                 android:padding="15dp"
@@ -124,7 +130,7 @@
                     android:id="@+id/emailTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/primary"
+                    android:textColor="@color/black"
                     android:text="Email"
                     android:textSize="18dp"
                     android:padding="15dp"

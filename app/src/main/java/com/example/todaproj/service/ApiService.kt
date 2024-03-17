@@ -7,6 +7,8 @@ import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.Headers
 import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Path
 
 interface ApiService {
 
@@ -26,4 +28,14 @@ interface ApiService {
         @Field("email") email:String,
         @Field("password") password: String
     ):Call<LoginResponse>
+
+    @FormUrlEncoded
+    @PUT("update-profile/{id}")
+    @Headers("Accept: application/json")
+    fun updateUser(
+        @Path("id") id: Int,
+        @Field("name") name:String,
+        @Field("password") password: String,
+    ):Call<LoginResponse>
+
 }

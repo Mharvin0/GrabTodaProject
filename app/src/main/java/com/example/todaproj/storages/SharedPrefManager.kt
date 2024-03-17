@@ -6,15 +6,21 @@ import com.example.todaproj.model.reponse.User
 class SharedPrefManager private constructor(private val context: Context) {
 
     private val sharedPreferences by lazy { context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE) }
+    private val KEY_PASSWORD = "password"
+
 
     val isLoggedIn: Boolean
-        get() = sharedPreferences.getInt(KEY_ID, -1) != -1
+        get() {
+            val loggedInUserId = sharedPreferences.getInt(KEY_ID, -1)
+            return loggedInUserId != -1
+        }
 
     val user: User
         get() = User(
             sharedPreferences.getInt(KEY_ID, -1),
             sharedPreferences.getString(KEY_EMAIL, null)?: "",
-            sharedPreferences.getString(KEY_NAME, null)?: ""
+            sharedPreferences.getString(KEY_NAME, null)?: "",
+            sharedPreferences.getString(KEY_PASSWORD, null)?: ""
         )
 
     fun saveUser(user: User) {
