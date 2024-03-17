@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+        android:layout_marginTop="50dp"
         android:padding="10dp">
 
         <ImageView
@@ -70,8 +71,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/email_input_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:hint="Email Address">
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email_edit_text"

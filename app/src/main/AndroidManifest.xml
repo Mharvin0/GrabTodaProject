@@ -22,10 +22,7 @@
             android:name=".MyProfile"
             android:exported="false" />
         <activity
-            android:name=".Profile"
-            android:exported="false" />
-        <activity
-            android:name=".Dashboard"
+            android:name=".EditProfile"
             android:exported="false" />
         <activity
             android:name=".Booking"
