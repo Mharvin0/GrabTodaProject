@@ -19,7 +19,8 @@
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="38sp"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:text="Book your ride now!"/>
 
@@ -36,29 +37,34 @@
             android:layout_height="353dp">
 
 
-            <EditText
-                android:id="@+id/editTextPickup"
+            <Spinner
+                android:id="@+id/pickUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:hint="Enter pickup location" />
+                android:layout_marginBottom="25dp"
+                android:hint="Enter pickup location"
+                android:completionThreshold="1" />
 
-            <EditText
-                android:id="@+id/editTextDropoff"
+            <Spinner
+                android:id="@+id/dropOff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/editTextPickup"
-                android:layout_margin="16dp"
+                android:layout_below="@id/pickUp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="25dp"
+                android:completionThreshold="1"
                 android:hint="Enter drop-off location" />
 
             <Button
                 android:id="@+id/buttonCalculateFare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/editTextDropoff"
+                android:layout_below="@id/dropOff"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
                 android:text="Book now" />

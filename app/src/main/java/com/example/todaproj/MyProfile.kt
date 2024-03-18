@@ -15,6 +15,7 @@ class MyProfile : AppCompatActivity() {
 
         val nameTextView = findViewById<TextView>(R.id.nameTextView)
         val emailTextView = findViewById<TextView>(R.id.emailTextView)
+        val totalBookingsTextView = findViewById<TextView>(R.id.totalBookings)
 
         val sharedPrefManager = SharedPrefManager.getInstance(this)
         val user = sharedPrefManager.user
@@ -23,6 +24,8 @@ class MyProfile : AppCompatActivity() {
             val user = sharedPrefManager.user
             nameTextView.text = user.name
             emailTextView.text = user.email
+            val bookingHistoryCount = sharedPrefManager.getBookingHistory().size
+            totalBookingsTextView.text = "Total Bookings: $bookingHistoryCount"
 
         } else {
         }

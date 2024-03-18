@@ -1,10 +1,12 @@
 package com.example.todaproj.service
 
+import com.example.todaproj.model.reponse.DestinationResponse
 import com.example.todaproj.model.reponse.LoginResponse
 import com.example.todaproj.model.reponse.RegisterResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
 import retrofit2.http.PUT
@@ -37,5 +39,9 @@ interface ApiService {
         @Field("name") name:String,
         @Field("password") password: String,
     ):Call<LoginResponse>
+
+    @GET("destination")
+    @Headers("Accept: application/json")
+    fun getDestinations(): Call<List<DestinationResponse>>
 
 }

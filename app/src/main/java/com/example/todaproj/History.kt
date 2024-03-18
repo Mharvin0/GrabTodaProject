@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
+import com.example.todaproj.storages.SharedPrefManager
 
 class History : AppCompatActivity() {
     private lateinit var titleTextView: TextView
@@ -17,21 +18,16 @@ class History : AppCompatActivity() {
         setContentView(R.layout.activity_history)
 
         titleTextView = findViewById(R.id.title)
+        titleTextView.text = "Booking History"
         transactionListView = findViewById(R.id.transactionListView)
         loadMoreButton = findViewById(R.id.loadMoreButton)
 
-        titleTextView.text = "History"
+        val bookingHistory = SharedPrefManager.getInstance(this).getBookingHistory()
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, bookingHistory)
 
-        val transaction = mutableListOf<String>()
-        for (i in 1..10) {
-            transaction.add("Transaction $i")
-        }
-
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, transaction)
         transactionListView.adapter = adapter
 
         loadMoreButton.setOnClickListener {
-            // Load more transaction or perform any desired action
         }
     }
 }

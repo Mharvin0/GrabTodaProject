@@ -6,4 +6,5 @@
     <item name="historyName" type="id" />
     <item name="logoutName" type="id" />
     <item name="frame_container" type="id" />
+    <item name="totalBookings" type="id" />
 </resources>

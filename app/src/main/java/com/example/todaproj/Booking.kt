@@ -1,55 +1,81 @@
 package com.example.todaproj
 
+import android.content.Context
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.todaproj.api.ApiClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import android.widget.Spinner
+import com.example.todaproj.model.reponse.DestinationResponse
+
 
 class Booking : AppCompatActivity() {
 
-    private lateinit var editTextPickup: EditText
-    private lateinit var editTextDropoff: EditText
+    private lateinit var spinnerpickUp: Spinner
+    private lateinit var spinnerdropOff: Spinner
     private lateinit var buttonCalculateFare: Button
     private lateinit var textViewFare: TextView
+    private val apiService = ApiClient.createApiService()
 
-    private val fareRates = mapOf(
-        "Location A" to 10.0,
-        "Location B" to 15.0,
-        "Location C" to 20.0
-    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking)
 
-        editTextPickup = findViewById(R.id.editTextPickup)
-        editTextDropoff = findViewById(R.id.editTextDropoff)
+        spinnerpickUp = findViewById(R.id.pickUp)
+        spinnerdropOff = findViewById(R.id.dropOff)
         buttonCalculateFare = findViewById(R.id.buttonCalculateFare)
         textViewFare = findViewById(R.id.textViewFare)
 
-
         buttonCalculateFare.setOnClickListener {
-            calculateFare()
+            bookRide()
         }
+        fetchDestinations()
     }
 
-    private fun calculateFare() {
-        val pickupLocation = editTextPickup.text.toString()
-        val dropoffLocation = editTextDropoff.text.toString()
+    private fun fetchDestinations() {
+        apiService.getDestinations().enqueue(object : Callback<List<DestinationResponse>> {
 
-        if (fareRates.containsKey(pickupLocation) && fareRates.containsKey(dropoffLocation)) {
-            val fare = calculateFareFromLocations(pickupLocation, dropoffLocation)
-            textViewFare.text = "Fare: $$fare"
-        } else {
-            textViewFare.text = "Fare calculation not available for these locations"
-        }
+            override fun onResponse(
+                call: Call<List<DestinationResponse>>,
+                response: Response<List<DestinationResponse>>
+            ) {
+                if (response.isSuccessful) {
+                    val destinations = response.body()
+                    destinations?.let {
+                        setupSpinners(it)
+                    }
+                } else {
+
+                }
+            }
+            override fun onFailure(call: Call<List<DestinationResponse>>, t: Throwable) {
+            }
+        })
+    }
+    private fun setupSpinners(destinations: List<DestinationResponse>) {
+        val locationList = destinations.map { it.location }
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, locationList)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerpickUp.adapter = adapter
+        spinnerdropOff.adapter = adapter
     }
 
-    private fun calculateFareFromLocations(pickupLocation: String, dropoffLocation: String): Double {
-        val pickupFare = fareRates[pickupLocation] ?: 0.0
-        val dropoffFare = fareRates[dropoffLocation] ?: 0.0
-        return pickupFare + dropoffFare
+    private fun bookRide() {
+        val pickupLocation = spinnerpickUp.selectedItem.toString()
+        val dropoffLocation = spinnerdropOff.selectedItem.toString()
+        saveBooking(pickupLocation, dropoffLocation)
+    }
+    private fun saveBooking(pickupLocation: String, dropoffLocation: String) {
+        val sharedPreferences = getSharedPreferences("bookings", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        val bookingKey = "Booking_${System.currentTimeMillis()}"
+        editor.putString(bookingKey, "Pickup: $pickupLocation, Drop-off: $dropoffLocation")
+        editor.apply()
     }
 }
