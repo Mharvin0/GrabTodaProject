@@ -1,5 +1,6 @@
 package com.example.todaproj.service
 
+import com.example.todaproj.model.reponse.BookingResponse
 import com.example.todaproj.model.reponse.DestinationResponse
 import com.example.todaproj.model.reponse.LoginResponse
 import com.example.todaproj.model.reponse.RegisterResponse
@@ -43,5 +44,15 @@ interface ApiService {
     @GET("destination")
     @Headers("Accept: application/json")
     fun getDestinations(): Call<List<DestinationResponse>>
+
+    @FormUrlEncoded
+    @POST("bookings")
+    @Headers("Accept: application/json")
+    fun createBooking(
+        @Field("user_id") userId: Int,
+        @Field("pickup") pickupLocation: Int,
+        @Field("dropoff") dropoffLocation: Int
+    ): Call<BookingResponse>
+
 
 }

@@ -34,6 +34,9 @@ class SharedPrefManager private constructor(private val context: Context) {
             apply()
         }
     }
+    fun getUserId(): Int {
+        return sharedPreferences.getInt(KEY_ID, -1)
+    }
     fun clear() {
         sharedPreferences.edit().clear().apply()
     }
@@ -42,8 +45,12 @@ class SharedPrefManager private constructor(private val context: Context) {
         sharedPreferences.edit().remove(KEY_PICKUP_LOCATION).remove(KEY_DROPOFF_LOCATION).apply()
     }
 
-    fun saveBookingHistory(history: List<String>) {
-        sharedPreferences.edit().putStringSet(BOOKING_HISTORY_KEY, history.toSet()).apply()
+    fun saveBooking(userId: Int, pickupLocation: Int, dropoffLocation: Int) {
+        val editor = sharedPreferences.edit()
+        editor.putInt(KEY_ID, userId)
+        editor.putInt(KEY_PICKUP_LOCATION, pickupLocation)
+        editor.putInt(KEY_DROPOFF_LOCATION, dropoffLocation)
+        editor.apply()
     }
 
     fun getBookingHistory(): List<String> {

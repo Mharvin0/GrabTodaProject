@@ -58,5 +58,34 @@
         app:menu="@menu/bottom_navigation_menu"
         android:background="@color/secondary"/>
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/bookingDetailsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_navigation"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/white"
+        android:visibility="gone">
 
+        <TextView
+            android:id="@+id/pickupLocationTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pickup Location:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/dropoffLocationTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dropoff Location:"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
