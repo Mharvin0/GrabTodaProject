@@ -3,7 +3,7 @@
     <item name="confirm_button" type="id" />
     <item name="highlightName" type="id" />
     <item name="profileName" type="id" />
-    <item name="historyName" type="id" />
+    <item name="HistoryName" type="id" />
     <item name="logoutName" type="id" />
     <item name="frame_container" type="id" />
     <item name="totalBookings" type="id" />

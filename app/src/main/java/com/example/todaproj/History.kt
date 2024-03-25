@@ -22,8 +22,8 @@ class History : AppCompatActivity() {
         titleTextView = findViewById(R.id.title)
         transactionListView = findViewById(R.id.transactionListView)
         loadMoreButton = findViewById(R.id.loadMoreButton)
-        pickupLocationTextView = findViewById(R.id.pickupLocationTextView)
-        dropoffLocationTextView = findViewById(R.id.dropoffLocationTextView)
+        pickupLocationTextView = findViewById(R.id.pickUp)
+        dropoffLocationTextView = findViewById(R.id.dropOff)
 
         val bookingHistory = SharedPrefManager.getInstance(this).getBookingHistory()
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, bookingHistory)
